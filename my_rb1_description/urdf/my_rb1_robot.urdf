@@ -18,6 +18,25 @@
         </plugin>
     </gazebo>
 
+    <gazebo reference="link_front_caster_wheel">
+        <mu>0</mu>
+        <mu2>0</mu2>
+    </gazebo>
+    <gazebo reference="link_back_caster_wheel">
+        <mu>0</mu>
+        <mu2>0</mu2>
+    </gazebo>
+    <gazebo reference="link_right_wheel">
+        <mu>1</mu>
+        <mu2>1</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+    <gazebo reference="link_left_wheel">
+        <mu>1</mu>
+        <mu2>1</mu2>
+        <material>Gazebo/Grey</material>
+    </gazebo>
+
     <gazebo reference="base_link">
         <material>Gazebo/Black</material>
     </gazebo>
@@ -49,9 +68,9 @@
     </link>
 
     <joint name="joint_base_footprint" type="fixed">
-        <origin rpy="0 0 0" xyz="0.0 0.0 -0.15" />
-        <child link="base_footprint" />
-        <parent link="base_link" />
+        <origin rpy="0 0 0" xyz="0.0 0.0 0.15" />
+        <child link="base_link" />
+        <parent link="base_footprint" />
     </joint>
 
     <!-- Joint - front caster wheel -->
@@ -119,7 +138,7 @@
 
     <!-- Joint - chassis / left wheel -->
     <joint name="joint_chassis_left_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="0 -0.2 -0.15" />
+        <origin rpy="0 0 0" xyz="0 0.2 -0.15" />
         <child link="link_left_wheel" />
         <parent link="base_link" />
         <axis rpy="0 0 0" xyz="0 1 0" />
@@ -152,7 +171,7 @@
 
     <!-- Joint - chassis / right wheel -->
     <joint name="joint_chassis_right_wheel" type="continuous">
-        <origin rpy="0 0 0" xyz="0 0.2 -0.15" />
+        <origin rpy="0 0 0" xyz="0 -0.2 -0.15" />
         <child link="link_right_wheel" />
         <parent link="base_link" />
         <axis rpy="0 0 0" xyz="0 1 0" />
